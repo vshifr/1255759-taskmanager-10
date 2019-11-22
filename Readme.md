@@ -1,7 +1,7 @@
 # Личный проект «Менеджер задач» [![Build status][travis-image]][travis-url]
 
 * Студент: [Victor Shifrin](https://up.htmlacademy.ru/ecmascript/10/user/1255759).
-* Наставник: `Неизвестно`.
+* Наставник: [Константин Полянский](https://github.com/kvpolyanskiy)
 
 ---
 
