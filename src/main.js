@@ -465,5 +465,5 @@ const createLoadMoreBtn = () => {
 };
 
 const taskBoardElement = document.querySelector(`.board`);
-[...Array(TASK_COUNT)].forEach(() => render(taskBoard, createTaskCard(), `beforeend`))
+[...Array(TASK_COUNT)].forEach(() => render(taskBoard, createTaskCard(), `beforeend`));
 render(taskBoardElement, createLoadMoreBtn(), `beforeend`);
