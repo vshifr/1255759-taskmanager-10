@@ -1,9 +1,10 @@
-'use strict';
+"use strict";
 
 const TASK_COUNT = 3;
 
 const createMenuTemplate = () => {
-  return `<section class="control__btn-wrap">
+  return `
+     <section class="control__btn-wrap">
           <input
             type="radio"
             name="control"
@@ -30,11 +31,13 @@ const createMenuTemplate = () => {
           <label for="control__statistic" class="control__label"
             >STATISTICS</label
           >
-        </section>`;
+      </section>
+      `;
 };
 
 const createFilters = () => {
-  return `<section class="main__filter filter container">
+  return `
+    <section class="main__filter filter container">
         <input
           type="radio"
           id="filter__all"
@@ -101,23 +104,26 @@ const createFilters = () => {
         <label for="filter__archive" class="filter__label"
           >Archive <span class="filter__archive-count">115</span></label
         >
-      </section>`;
+    </section>
+    `;
 };
 
 const createBoardTemplate = () => {
-  return `<section class="board container">
+  return `
+    <section class="board container">
         <div class="board__filter-list">
           <a href="#" class="board__filter">SORT BY DEFAULT</a>
           <a href="#" class="board__filter">SORT BY DATE up</a>
           <a href="#" class="board__filter">SORT BY DATE down</a>
         </div>
-        <div class="board__tasks">
-        </section>
+        <div class="board__tasks"> </div>
+    </section>
         `;
 };
 
 const createTaskCard = () => {
-  return `<article class="card card--black">
+  return `
+     <article class="card card--black">
             <div class="card__form">
               <div class="card__inner">
                 <div class="card__control">
@@ -181,11 +187,13 @@ const createTaskCard = () => {
                 </div>
               </div>
             </div>
-          </article>`;
+      </article>
+      `;
 };
 
 const taskEditTemplate = () => {
-  return `<article class="card card--edit card--yellow card--repeat">
+  return `
+     <article class="card card--edit card--yellow card--repeat">
             <form class="card__form" method="get">
               <div class="card__inner">
                 <div class="card__color-bar">
@@ -439,7 +447,7 @@ const taskEditTemplate = () => {
                 </div>
               </div>
             </form>
-          </article>`;
+      </article>`;
 };
 
 function render(container, template, place) {
@@ -447,25 +455,15 @@ function render(container, template, place) {
 }
 const mainTemplate = document.querySelector(`main`);
 const headerTemplate = mainTemplate.querySelector(`.main__control`);
-
 render(headerTemplate, createMenuTemplate(), `beforeend`);
-
 render(mainTemplate, createFilters(), `beforeend`);
-
 render(mainTemplate, createBoardTemplate(), `beforeend`);
-
 const taskBoard = document.querySelector(`.board__tasks`);
-
 render(taskBoard, taskEditTemplate(), `beforeend`);
-
 const createLoadMoreBtn = () => {
   return `<button class="load-more" type="button">load more</button>`;
 };
 
 const taskBoardElement = document.querySelector(`.board`);
-
-new Array(TASK_COUNT - 1)
-  .fill(``)
-  .forEach(() => render(taskBoard, createTaskCard(), `beforeend`));
-
+[...Array(TASK_COUNT)].forEach(() => render(taskBoard, createTaskCard(), `beforeend`))
 render(taskBoardElement, createLoadMoreBtn(), `beforeend`);
