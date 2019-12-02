@@ -1,8 +1,7 @@
 "use strict";
 
 const TASK_COUNT = 3;
-const mainTemplate = document.querySelector(`main`);
-const headerTemplate = mainTemplate.querySelector(`.main__control`);
+
 
 const createMenuTemplate = () => {
   return `
@@ -142,17 +141,14 @@ const createTaskCard = () => {
                     favorites
                   </button>
                 </div>
-
                 <div class="card__color-bar">
                   <svg class="card__color-bar-wave" width="100%" height="10">
                     <use xlink:href="#wave"></use>
                   </svg>
                 </div>
-
                 <div class="card__textarea-wrap">
                   <p class="card__text">Example default task with default color.</p>
                 </div>
-
                 <div class="card__settings">
                   <div class="card__details">
                     <div class="card__dates">
@@ -163,7 +159,6 @@ const createTaskCard = () => {
                         </p>
                       </div>
                     </div>
-
                     <div class="card__hashtag">
                       <div class="card__hashtag-list">
                         <span class="card__hashtag-inner">
@@ -171,13 +166,11 @@ const createTaskCard = () => {
                             #todo
                           </span>
                         </span>
-
                         <span class="card__hashtag-inner">
                           <span class="card__hashtag-name">
                             #personal
                           </span>
                         </span>
-
                         <span class="card__hashtag-inner">
                           <span class="card__hashtag-name">
                             #important
@@ -203,7 +196,6 @@ const taskEditTemplate = () => {
                     <use xlink:href="#wave"></use>
                   </svg>
                 </div>
-
                 <div class="card__textarea-wrap">
                   <label>
                     <textarea
@@ -213,14 +205,12 @@ const taskEditTemplate = () => {
                     >Here is a card with filled data</textarea>
                   </label>
                 </div>
-
                 <div class="card__settings">
                   <div class="card__details">
                     <div class="card__dates">
                       <button class="card__date-deadline-toggle" type="button">
                         date: <span class="card__date-status">yes</span>
                       </button>
-
                       <fieldset class="card__date-deadline">
                         <label class="card__input-deadline-wrap">
                           <input
@@ -232,11 +222,9 @@ const taskEditTemplate = () => {
                           />
                         </label>
                       </fieldset>
-
                       <button class="card__repeat-toggle" type="button">
                         repeat:<span class="card__repeat-status">yes</span>
                       </button>
-
                       <fieldset class="card__repeat-days">
                         <div class="card__repeat-days-inner">
                           <input
@@ -315,7 +303,6 @@ const taskEditTemplate = () => {
                         </div>
                       </fieldset>
                     </div>
-
                     <div class="card__hashtag">
                       <div class="card__hashtag-list">
                         <span class="card__hashtag-inner">
@@ -332,7 +319,6 @@ const taskEditTemplate = () => {
                             delete
                           </button>
                         </span>
-
                         <span class="card__hashtag-inner">
                           <input
                             type="hidden"
@@ -347,7 +333,6 @@ const taskEditTemplate = () => {
                             delete
                           </button>
                         </span>
-
                         <span class="card__hashtag-inner">
                           <input
                             type="hidden"
@@ -363,7 +348,6 @@ const taskEditTemplate = () => {
                           </button>
                         </span>
                       </div>
-
                       <label>
                         <input
                           type="text"
@@ -374,7 +358,6 @@ const taskEditTemplate = () => {
                       </label>
                     </div>
                   </div>
-
                   <div class="card__colors-inner">
                     <h3 class="card__colors-title">Color</h3>
                     <div class="card__colors-wrap">
@@ -442,7 +425,6 @@ const taskEditTemplate = () => {
                     </div>
                   </div>
                 </div>
-
                 <div class="card__status-btns">
                   <button class="card__save" type="submit">save</button>
                   <button class="card__delete" type="button">delete</button>
@@ -455,8 +437,8 @@ const taskEditTemplate = () => {
 function render(container, template, place) {
   container.insertAdjacentHTML(place, template);
 }
-
-
+const mainTemplate = document.querySelector(`main`);
+const headerTemplate = mainTemplate.querySelector(`.main__control`);
 render(headerTemplate, createMenuTemplate(), `beforeend`);
 render(mainTemplate, createFilters(), `beforeend`);
 render(mainTemplate, createBoardTemplate(), `beforeend`);
