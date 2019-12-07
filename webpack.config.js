@@ -5,8 +5,13 @@ module.exports = {
   entry: `./src/main.js`, // Точка входа приложения
   output: { // Настройка выходного файла
     filename: `bundle.js`,
-    path: path.join(_dirname, `public`)
+    path: path.join(__dirname, `public`)
+  },
+  devtool: `source-map`, // Подключаем sourcemaps
+  devServer: {
+    contentBase: path.join(__dirname, `./public`),
+    publicPath: 'http://localhost:8080/',
+    compress: true,
+    watchContentBase: true
   }
-  devtool: `source-map` // Подключаем sourcemaps
-
 };
